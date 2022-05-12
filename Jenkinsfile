@@ -17,5 +17,13 @@ pipeline {
                 """
             }
         }
+        stage ('Test') {
+		when {
+			branch "PR-*"
+		}
+		steps {
+			echo "LA prueba ha ido bien"
+		}
+	}
     }
 }
