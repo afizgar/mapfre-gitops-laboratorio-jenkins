@@ -1,18 +1,20 @@
 pipeline {
+    agent any
+
     stages {
-        stage('build') {
+        stage('Hello') {
             steps {
-                echo "Hello World!"
+                echo 'Hello World'
             }
         }
-	stage('Build') {
-       	    agent { label 'docker-agent' }
+        stage ('Ejemplo shell script') {
+            agent { label 'docker-agent' }
             steps {
-                sh 'echo "Ejemplo shell script"'
-                sh '''
-                    hostname 
-                    ls -la
-                '''
+                sh """
+                   hostname
+                   ls -la
+                   pwd
+                """
             }
         }
     }
