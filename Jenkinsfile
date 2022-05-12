@@ -1,5 +1,4 @@
 pipeline {
-    agent { label 'docker-agent' }
     stages {
         stage('build') {
             steps {
@@ -7,6 +6,7 @@ pipeline {
             }
         }
 	stage('Build') {
+       	    agent { label 'docker-agent' }
             steps {
                 sh 'echo "Ejemplo shell script"'
                 sh '''
