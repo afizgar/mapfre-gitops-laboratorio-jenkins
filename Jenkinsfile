@@ -17,13 +17,13 @@ pipeline {
                 """
             }
         }
-        stage ('Test') {
-		when {
-			branch "PR-*"
-		}
-		steps {
-			echo "LA prueba ha ido bien"
-		}
-	}
+        stage ("Test") {
+            when {
+                branch "PR-*"
+            }
+            steps {
+                sh "bash test.sh"
+            }
+        }
     }
 }
